@@ -1,110 +1,282 @@
 {
-    "products": [
-      {
-        "id": "1",
-        "product_id": "P001",
-        "product_code": "PC001",
-        "category_id": "C001",
-        "product_name": "Apple Juice",
-        "price": 1500
-      },
-      {
-        "id": "2",
-        "product_id": "P002",
-        "product_code": "PC002",
-        "category_id": "C002",
-        "product_name": "Orange Juice",
-        "price": 1200
-      },
-      {
-        "id": "3",
-        "product_id": "P003",
-        "product_code": "PC003",
-        "category_id": "C001",
-        "product_name": "Grape Juice",
-        "price": 1700
-      }
-    ],
-    "categories": [
-      {
-        "id": "1",
-        "category_id": "C001",
-        "category_name": "Beverages"
-      },
-      {
-        "id": "2",
-        "category_id": "C002",
-        "category_name": "Snacks"
-      },
-      {
-        "id": "3",
-        "category_id": "C003",
-        "category_name": "Dairy"
-      }
-    ],
-    "staffs": [
-      {
-        "id": "1",
-        "staff_id": "S001",
-        "staff_code": "SC001",
-        "staff_name": "Alice"
-      },
-      {
-        "id": "2",
-        "staff_id": "S002",
-        "staff_code": "SC002",
-        "staff_name": "Bob"
-      },
-      {
-        "id": "3",
-        "staff_id": "S003",
-        "staff_code": "SC003",
-        "staff_name": "Charlie"
-      }
-    ],
-    "invoices": [
-      {
-        "id": "1",
-        "invoice_id": "INV001",
-        "voucher_no": "V001",
-        "date_time": "2025-04-04T10:00:00",
-        "total_amount": 4500,
-        "discount": 500,
-        "tax": 200,
-        "payment_type": "Cash",
-        "payment_amount": 4200,
-        "receive_amount": 5000,
-        "change": 800,
-        "staff_code": "SC001"
-      },
-      {
-        "id": "2",
-        "invoice_id": "INV002",
-        "voucher_no": "V002",
-        "date_time": "2025-04-04T11:15:00",
-        "total_amount": 3000,
-        "discount": 0,
-        "tax": 150,
-        "payment_type": "Card",
-        "payment_amount": 3150,
-        "receive_amount": 3150,
-        "change": 0,
-        "staff_code": "SC002"
-      },
-      {
-        "id": "3",
-        "invoice_id": "INV003",
-        "voucher_no": "V003",
-        "date_time": "2025-04-04T12:30:00",
-        "total_amount": 6000,
-        "discount": 600,
-        "tax": 250,
-        "payment_type": "Cash",
-        "payment_amount": 5650,
-        "receive_amount": 6000,
-        "change": 350,
-        "staff_code": "SC003"
-      }
-    ]
-  }
-  
+  "products": [
+    {
+      "id": "1",
+      "product_id": "P001",
+      "product_code": "PC001",
+      "category_id": "C001",
+      "product_name": "Apple Juice",
+      "price": 1500
+    },
+    {
+      "id": "2",
+      "product_id": "P002",
+      "product_code": "PC002",
+      "category_id": "C002",
+      "product_name": "Orange Juice",
+      "price": 1200
+    },
+    {
+      "id": "3",
+      "product_id": "P003",
+      "product_code": "PC003",
+      "category_id": "C001",
+      "product_name": "Grape Juice",
+      "price": 1700
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "category_id": "C001",
+      "category_name": "Beverages"
+    },
+    {
+      "id": "2",
+      "category_id": "C002",
+      "category_name": "Snacks"
+    },
+    {
+      "id": "3",
+      "category_id": "C003",
+      "category_name": "Dairy"
+    }
+  ],
+  "staffs": [
+    {
+      "id": "1",
+      "staff_id": "S001",
+      "staff_code": "SC001",
+      "staff_name": "Alice"
+    },
+    {
+      "id": "2",
+      "staff_id": "S002",
+      "staff_code": "SC002",
+      "staff_name": "Bob"
+    },
+    {
+      "id": "3",
+      "staff_id": "S003",
+      "staff_code": "SC003",
+      "staff_name": "Charlie"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "1",
+      "invoice_id": "INV001",
+      "voucher_no": "V001",
+      "date_time": "2025-04-04T10:00:00",
+      "total_amount": 4500,
+      "discount": 500,
+      "tax": 200,
+      "payment_type": "Cash",
+      "payment_amount": 4200,
+      "receive_amount": 5000,
+      "change": 800,
+      "staff_code": "SC001"
+    },
+    {
+      "id": "2",
+      "invoice_id": "INV002",
+      "voucher_no": "V002",
+      "date_time": "2025-04-04T11:15:00",
+      "total_amount": 3000,
+      "discount": 0,
+      "tax": 150,
+      "payment_type": "Card",
+      "payment_amount": 3150,
+      "receive_amount": 3150,
+      "change": 0,
+      "staff_code": "SC002"
+    },
+    {
+      "id": "3",
+      "invoice_id": "INV003",
+      "voucher_no": "V003",
+      "date_time": "2025-04-04T12:30:00",
+      "total_amount": 6000,
+      "discount": 600,
+      "tax": 250,
+      "payment_type": "Cash",
+      "payment_amount": 5650,
+      "receive_amount": 6000,
+      "change": 350,
+      "staff_code": "SC003"
+    }
+  ],
+  "orders": [
+    {
+      "id": "",
+      "invoice_id": "INV-1743954657157-585",
+      "voucher_no": "X3J8",
+      "items": [
+        {
+          "id": "1",
+          "product_id": "P001",
+          "product_code": "PC001",
+          "category_id": "C001",
+          "product_name": "Apple Juice",
+          "price": 1500,
+          "quantity": 1,
+          "subtotal": 1500
+        }
+      ],
+      "date": "2025-04-06T15:50:57.157Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": "SC002"
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955086134-885",
+      "voucher_no": "V70R",
+      "items": [
+        {
+          "id": "1",
+          "product_id": "P001",
+          "product_code": "PC001",
+          "category_id": "C001",
+          "product_name": "Apple Juice",
+          "price": 1500,
+          "quantity": 1,
+          "subtotal": 1500
+        }
+      ],
+      "date": "2025-04-06T15:58:06.134Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955241115-809",
+      "voucher_no": "NVTQ",
+      "items": [
+        {
+          "id": "1",
+          "product_id": "P001",
+          "product_code": "PC001",
+          "category_id": "C001",
+          "product_name": "Apple Juice",
+          "price": 1500,
+          "quantity": 1,
+          "subtotal": 1500
+        },
+        {
+          "id": "2",
+          "product_id": "P002",
+          "product_code": "PC002",
+          "category_id": "C002",
+          "product_name": "Orange Juice",
+          "price": 1200,
+          "quantity": 1,
+          "subtotal": 1200
+        }
+      ],
+      "date": "2025-04-06T16:00:41.115Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955304799-593",
+      "voucher_no": "9K6P",
+      "items": [
+        {
+          "id": "1",
+          "product_id": "P001",
+          "product_code": "PC001",
+          "category_id": "C001",
+          "product_name": "Apple Juice",
+          "price": 1500,
+          "quantity": 1,
+          "subtotal": 1500
+        }
+      ],
+      "date": "2025-04-06T16:01:44.799Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955327820-808",
+      "voucher_no": "AVVU",
+      "items": [
+        {
+          "id": "1",
+          "product_id": "P001",
+          "product_code": "PC001",
+          "category_id": "C001",
+          "product_name": "Apple Juice",
+          "price": 1500,
+          "quantity": 1,
+          "subtotal": 1500
+        }
+      ],
+      "date": "2025-04-06T16:02:07.820Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955333132-567",
+      "voucher_no": "CQ6U",
+      "items": [
+        {
+          "id": "2",
+          "product_id": "P002",
+          "product_code": "PC002",
+          "category_id": "C002",
+          "product_name": "Orange Juice",
+          "price": 1200,
+          "quantity": 1,
+          "subtotal": 1200
+        }
+      ],
+      "date": "2025-04-06T16:02:13.132Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    },
+    {
+      "id": "",
+      "invoice_id": "INV-1743955453292-605",
+      "voucher_no": "2JXY",
+      "items": [
+        {
+          "id": "2",
+          "product_id": "P002",
+          "product_code": "PC002",
+          "category_id": "C002",
+          "product_name": "Orange Juice",
+          "price": 1200,
+          "quantity": 1,
+          "subtotal": 1200
+        }
+      ],
+      "date": "2025-04-06T16:04:13.292Z",
+      "total_amount": 0,
+      "discount": 0,
+      "tax": 0,
+      "payment_type": "cash",
+      "staff_code": ""
+    }
+  ]
+}
