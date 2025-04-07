@@ -1,7 +1,8 @@
 import OrderDetail from "@/components/order-detail"
 import OrderForm from "@/components/order-form"
 
-const CreateOrder = () => {
+
+const  CreateOrder = () => {
   return (
     <div>
 
@@ -20,3 +21,4 @@ const CreateOrder = () => {
 }
 
 export default CreateOrder
+

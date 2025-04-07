@@ -11,12 +11,12 @@ const items = [
     },
     {
       title: "Create Order",
-      url: "#",
+      url: "/create-order",
       icon: Inbox,
     },
     {
       title: "Order List",
-      url: "#",
+      url: "/orders",
       icon: Calendar,
     },
     {

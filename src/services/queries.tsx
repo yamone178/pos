@@ -1,5 +1,5 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
-import { getCategories, getProducts, getStaff } from "./api";
+import { getCategories, getInvoice, getOrders, getProducts, getStaff } from "./api";
 
 
 export function useGetCategories(){
@@ -21,5 +21,21 @@ export function useGetStaffs()
     return useQuery({
         queryKey: ["staffs"],
         queryFn: getStaff
+    })
+}
+
+export function useGetOrders()
+{
+    return useQuery({
+        queryKey: ["orders"],
+        queryFn: getOrders
+    })
+}
+
+export function useGetInvoice(id : string)
+{
+    return useQuery({
+        queryKey: ["invoice", id],
+        queryFn: () => getInvoice(id!)  
     })
 }

@@ -1,5 +1,4 @@
-import { generateInvoiceNumber, generateVoucherCode } from "@/hooks/use-autogenerate";
-import { TInvoice, TProduct } from "@/types/types";
+import { OrderItem,} from "@/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 
@@ -8,27 +7,16 @@ import { createSlice } from "@reduxjs/toolkit";
 //     subtotal: number
 // }
 
-// interface OrderState{
-//     items: OrderItem[],
-//     date: string,
-//     discount: number,
-//     tax: number,
-//     payment_type: string,
-//     total_amount: number,
-//     staff_code: string   
-// }
+interface OrderState{
+    items: OrderItem[],
+    staff_code: string,
+    staff_name: string
+}
 
-const initialState : TInvoice = {
-    id: "",
-    invoice_id: generateInvoiceNumber(),
-    voucher_no: generateVoucherCode(),
-    items:[],
-    date: new Date().toISOString(),
-    discount: 0,
-    tax: 0,
-    payment_type: "Cash",
-    total_amount: 0,
-    staff_code: ""
+const initialState : OrderState  = {   
+    items:[],  
+    staff_code: "",
+    staff_name: ""
 }
 
 
@@ -51,8 +39,7 @@ export const orderSlice = createSlice({
                 })
             }
             
-            console.log(state);
-            
+           
         },
         addQuantity: (state, action) => {
             const itemIndex = state.items.findIndex(item => item.id === action.payload.id)
@@ -88,11 +75,24 @@ export const orderSlice = createSlice({
         setStaff:(state, action) =>{
             state.staff_code = action.payload
         },
+        setStaffName: (state, action) => {
+            console.log(action.payload);
+            
+            state.staff_name = action.payload
+
+            console.log(state.staff_name);
+            
+        },
+        resetState : (state) =>{
+            state.items = []
+            state.staff_code = ""
+            state.staff_name = ""
+        }
       
 
     }
 })
 
-export const {addItem, addQuantity, minusQuantity, removeItem,  setStaff} = orderSlice.actions
+export const {addItem, addQuantity, minusQuantity, removeItem,  setStaff, setStaffName, resetState} = orderSlice.actions
 
 export default orderSlice.reducer

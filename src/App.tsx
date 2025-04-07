@@ -5,6 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Router from './router/router'
 
 const queryClient = new QueryClient()
 
@@ -15,7 +16,7 @@ const App = () => {
       
       {/* sidebar */}
       <Layout > 
-        <CreateOrder />
+        <Router />
       </Layout>
     </div>
     </QueryClientProvider>

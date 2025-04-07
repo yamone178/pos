@@ -11,18 +11,19 @@ import {
 } from "@/components/ui/select"
 import { useGetStaffs } from "@/services/queries"
 import { useDispatch } from "react-redux"
-import { setStaff } from "@/redux/OrderSlice"
+import { setStaff, setStaffName } from "@/redux/OrderSlice"
 
 export function SelectStaff() {
 
     const {isPending, data: staffs, error} = useGetStaffs()
     const dispatch = useDispatch()
 
-    const handleStaff = (value: string) =>{
+    const handleStaff = (value: string) =>{    
      
-      
+      const staffName =  staffs?.find((staff)=> staff.staff_code === value)?.staff_name
+      console.log(staffName);
       dispatch(setStaff(value))
-      
+      dispatch(setStaffName(staffName))
     }
 
   return (

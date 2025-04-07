@@ -27,7 +27,6 @@ export interface OrderItem extends TProduct {
 
 export interface TInvoice{
     id: string,
-    invoice_id: string,
     voucher_no: string,
     items: OrderItem[],
     date: string,
@@ -35,5 +34,5 @@ export interface TInvoice{
     discount: number,
     tax: number,
     payment_type: string,
-    staff_code: string    
+    staff_code: string,    
 }

@@ -1,4 +1,4 @@
-import {  addQuantity,  minusQuantity, removeItem } from "@/redux/OrderSlice";
+import {  addQuantity,  minusQuantity, removeItem, resetState } from "@/redux/OrderSlice";
 import { RootState } from "@/redux/store"
 import { DeleteIcon, MinusCircle, PlusCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -7,17 +7,16 @@ import { SelectPayment } from "./select-payment";
 import { useCreateOrder } from "@/services/mutation";
 import { TInvoice } from "@/types/types";
 import { generateInvoiceNumber, generateVoucherCode } from "@/hooks/use-autogenerate";
-import { useMutation } from "@tanstack/react-query";
-import { createOrder } from "@/services/api";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner"
+
+
 
 
 const OrderDetail = () => {
-    // const createOrderMutation = useCreateOrder();
+     const createOrderMutation = useCreateOrder();
 
-    const createOrderMutation = useMutation({
-        mutationFn: createOrder
-    })
-
+   
 
     const items = useSelector((state: RootState) => state.order.items);
     const staff_code = useSelector((state: RootState) => state.order.staff_code);
@@ -25,7 +24,7 @@ const OrderDetail = () => {
     const [sutotal, setsubTotal] = useState<number>(0);
     const [discount, setDiscount] = useState<number>(0);
     const [payment, setPayment] = useState<string>("cash");
-
+   
     const [tax, setTax] = useState<number>(0);
     const [change, setChange] = useState<number>(0);
 
@@ -34,6 +33,7 @@ const OrderDetail = () => {
     const discountRef = useRef<HTMLInputElement>(null);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const subtotal = items.reduce((acc, item) => acc + item.subtotal, 0);
@@ -55,38 +55,34 @@ const OrderDetail = () => {
         setChange(received - (sutotal - discount + tax));
     };
 
-    // const { mutate : orderMutation} = useMutation({
-    //     mutationFn: addOrder
-    // })
-
-
+    
+   
     const handleCreateOrder = async (e: React.FormEvent) => {
          e.preventDefault(); // Prevent default behavior
 
         console.log('hello');
         
         const orderData: TInvoice = {
-            id: "",
-            invoice_id: generateInvoiceNumber(),
+          
+            id: generateInvoiceNumber(),
             voucher_no: generateVoucherCode(),
             items: items,
             date: new Date().toISOString(),
-            total_amount: 0,
+            total_amount: sutotal - discount + tax,
             discount: discount,
             tax: tax,
             payment_type: payment,
             staff_code: staff_code,
         };
 
-        console.log(orderData);
-        
-
-
-        // try {
-        createOrderMutation.mutate(orderData);
-        //   } catch (error) {
-        //     console.error('Mutation failed:', error);
-        //   }
+        try {
+            createOrderMutation.mutate(orderData);
+            toast("Order has been created.")
+            dispatch(resetState())
+            navigate('/orders')
+          } catch (error) {
+            console.error('Mutation failed:', error);
+          }
     };
 
     return (

@@ -28,38 +28,26 @@ export const getStaff = async () =>{
     return response.data
 }
 
+export const getOrders = async () => {
+  const response = await axiosInstance.get<TInvoice[]>('/orders');
+  return response.data
+}
+
+export const getInvoice = async (id : string) => {
+  const response = await axiosInstance.get<TInvoice>(`/orders/${id}`);
+  return response.data
+}
+
 export const createOrder = async (order: TInvoice): Promise<TInvoice> => {
 
-  console.log(order);
-
-  const api = axios.create({
-    baseURL: 'http://localhost:3000/',
-    headers : {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    }
-  })
 
   try {
-    const response = await api.post('/orders', order);
-    console.log(response);
+    const response = await axiosInstance.post<TInvoice>('/orders', order);
+    return response.data
     
   } catch (error) {
     console.log(error);
     
   }
 
-   
-  
-  // try {
-  //   const response = await axiosInstance.post<TInvoice>('/orders', order);
-  //   return response.data;
-  // } catch (error: any) {
-  //   // Optional: add custom logging or error formatting here
-  //   if (axios.isAxiosError(error)) {
-  //     throw new Error(error.response?.data?.message || 'Failed to create order');
-  //   } else {
-  //     throw new Error('An unexpected error occurred while creating the order');
-  //   }
-  // }
 }
