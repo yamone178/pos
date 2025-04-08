@@ -3,24 +3,32 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateOrder from "@/pages/CreateOrder";
 import Orders from "@/pages/Orders";
 import Invoice from "@/pages/Invoice";
+import Layout from "@/layout/layout";
 
 
 const Router = () => {
     const config = createBrowserRouter(
       [
+        {
+          path: "/",
+          element: <Layout />,
+          children: [
+            {
+              path: "/create-order",
+              element: <CreateOrder />,
+            },
+            {
+                path: "/orders",
+                element: <Orders />,
+              },
+              {
+                path: "/invoice/:invoice_id",
+                element: <Invoice />,
+              },
+          ]
+        }
         
-        {
-          path: "/create-order",
-          element: <CreateOrder />,
-        },
-        {
-            path: "/orders",
-            element: <Orders />,
-          },
-          {
-            path: "/invoice/:invoice_id",
-            element: <Invoice />,
-          },
+        
           
       ],
     //   {

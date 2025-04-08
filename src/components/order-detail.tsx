@@ -77,7 +77,7 @@ const OrderDetail = () => {
 
         try {
             createOrderMutation.mutate(orderData);
-            toast("Order has been created.")
+            toast.success("Order has been created.")
             dispatch(resetState())
             navigate('/orders')
           } catch (error) {

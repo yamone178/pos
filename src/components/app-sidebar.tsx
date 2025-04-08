@@ -1,12 +1,13 @@
 import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react'
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from './ui/sidebar'
+import { Link, NavLink } from 'react-router-dom'
 
 
 // Menu items.
 const items = [
     {
       title: "Home",
-      url: "#",
+      url: "/",
       icon: Home,
     },
     {
@@ -42,10 +43,10 @@ const items = [
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a href={item.url}>
+                      <NavLink to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

@@ -15,9 +15,9 @@ const App = () => {
     <div className="">
       
       {/* sidebar */}
-      <Layout > 
+      
         <Router />
-      </Layout>
+     
     </div>
     </QueryClientProvider>
     
