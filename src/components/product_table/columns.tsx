@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux"
 import ActionCell from "./action-cell"
 
 
-
 export const columns: ColumnDef<TProduct>[] = [
   {
     accessorKey: "product_code",
@@ -21,7 +20,7 @@ export const columns: ColumnDef<TProduct>[] = [
     header: "Price",
   },
 
-  
+   
     {
         id: "action", // Use an `id` for non-accessor columns
         header: "Action",

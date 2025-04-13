@@ -4,6 +4,7 @@ import CreateOrder from "@/pages/CreateOrder";
 import Orders from "@/pages/Orders";
 import Invoice from "@/pages/Invoice";
 import Layout from "@/layout/layout";
+import Products from "@/pages/Products";
 
 
 const Router = () => {
@@ -20,6 +21,10 @@ const Router = () => {
             {
                 path: "/orders",
                 element: <Orders />,
+              },
+              {
+                path: "/products",
+                element: <Products />,
               },
               {
                 path: "/invoice/:invoice_id",

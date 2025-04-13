@@ -1,4 +1,4 @@
-import { OrderItem,} from "@/types/types";
+import { OrderItem, TProduct,} from "@/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 
@@ -11,12 +11,14 @@ interface OrderState{
     items: OrderItem[],
     staff_code: string,
     staff_name: string
+    update_product: TProduct | null
 }
 
 const initialState : OrderState  = {   
     items:[],  
     staff_code: "",
-    staff_name: ""
+    staff_name: "",
+    update_product: null
 }
 
 
@@ -87,12 +89,17 @@ export const orderSlice = createSlice({
             state.items = []
             state.staff_code = ""
             state.staff_name = ""
+        },
+        setUpdateProductValue : (state, action) => {
+          
+            
+            state.update_product = action.payload
         }
       
 
     }
 })
 
-export const {addItem, addQuantity, minusQuantity, removeItem,  setStaff, setStaffName, resetState} = orderSlice.actions
+export const {addItem, addQuantity, minusQuantity, removeItem,  setStaff, setStaffName, resetState , setUpdateProductValue} = orderSlice.actions
 
 export default orderSlice.reducer

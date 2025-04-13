@@ -22,7 +22,7 @@ const items = [
     },
     {
       title: "Item",
-      url: "#",
+      url: "/products",
       icon: Search,
     },
     {

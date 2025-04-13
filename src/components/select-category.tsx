@@ -12,14 +12,19 @@ import {
 import { useGetCategories } from "@/services/queries"
 
 
+interface CategoryProps {
+  value ?: string,
+  onChange ?: (value: string) => void
+}
 
-export function SelectCategory() {
+
+export function SelectCategory({value, onChange} : CategoryProps) {
 
     const {isPending, data:  categories, error} = useGetCategories()
     
 
   return (
-    <Select>
+    <Select value={value} onValueChange={onChange}>
       <SelectTrigger className="w-[100%]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
@@ -28,7 +33,7 @@ export function SelectCategory() {
           <SelectLabel>Category</SelectLabel>
           {
             categories&& categories.length > 0 && categories.map((category) => (
-                <SelectItem key={category.id} value={category.category_name}>{category.category_name}</SelectItem>
+                <SelectItem key={category.id} value={category.category_id}>{category.category_name}</SelectItem>
 
             ))
           }

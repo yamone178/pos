@@ -8,14 +8,19 @@ import {
     TableRow,
   } from "@/components/ui/table"
 import { useGetOrders } from "@/services/queries"
-import { ChevronDown } from "lucide-react"
 import { OrderAction } from "./order-action"
+import { useReactTable } from "@tanstack/react-table";
+
+
+ 
 
 const OrderTable = () => {
 
     const {data, isPending, error} = useGetOrders()
 
   return (
+    <>
+   
     <Table>
   <TableCaption>A list of your recent invoices.</TableCaption>
   <TableHeader>
@@ -50,6 +55,8 @@ const OrderTable = () => {
     
   </TableBody>
 </Table>
+
+</>
   )
 }
 

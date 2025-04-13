@@ -38,6 +38,36 @@ export const getInvoice = async (id : string) => {
   return response.data
 }
 
+export const createProduct = async (product: TProduct) => {
+
+
+  try {
+    const response = await axiosInstance.post<TProduct>('/products', product);
+    return response.data
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+
+}
+
+export const updateProduct = async (id: string, newProduct: TProduct) => {
+
+
+  try {
+    const response = await axiosInstance.put(`/products/${id}`, newProduct);
+    return response.data
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+
+}
+
+
+
 export const createOrder = async (order: TInvoice): Promise<TInvoice> => {
 
 
