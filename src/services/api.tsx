@@ -66,9 +66,19 @@ export const updateProduct = async (id: string, newProduct: TProduct) => {
 
 }
 
+export const deleteProduct = async(id:string) => {
+  try {
+    const response = await axiosInstance.delete(`/products/${id}`);
+    return response.data
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
 
 
-export const createOrder = async (order: TInvoice): Promise<TInvoice> => {
+export const createOrder = async (order: TInvoice): Promise<TInvoice | undefined> => {
 
 
   try {
@@ -81,3 +91,32 @@ export const createOrder = async (order: TInvoice): Promise<TInvoice> => {
   }
 
 }
+
+export const createCategory = async (category: TCategory): Promise<TCategory | undefined> => {
+
+  try {
+    const response = await axiosInstance.post<TCategory>('/categories', category );
+    return response.data
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+
+}
+
+export const updateCategory = async (id: string, newCategory: TCategory) => {
+
+
+  try {
+    const response = await axiosInstance.put(`/categories/${id}`, newCategory);
+    return response.data
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+
+}
+
+

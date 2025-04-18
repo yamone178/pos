@@ -2,6 +2,7 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table"
 
@@ -13,12 +14,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { TProduct } from "@/types/types"
+import {  TInvoice } from "@/types/types"
 import { DataTablePagination } from "../data-table-pagination"
 
 interface DataTableProps<TValue> {
-  columns: ColumnDef<TProduct, TValue>[]
-  data: TProduct[]
+  columns: ColumnDef<TInvoice, TValue>[]
+  data: TInvoice[]
 }
 
 export function DataTable<TValue>({
@@ -29,11 +30,12 @@ export function DataTable<TValue>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel()
   })
 
   return (
     <>
-        <div className="rounded-md border">
+    <div className="rounded-md border">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -76,11 +78,12 @@ export function DataTable<TValue>({
           )}
         </TableBody>
       </Table>
-    </div>
 
-    <div className=" mt-5">
-       <DataTablePagination  table={table}/>
-       </div>
+    </div>
+   <div className=" mt-5">
+   <DataTablePagination  table={table}/>
+   </div>
+
     </>
   )
 }

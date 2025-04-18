@@ -1,6 +1,6 @@
 import { addItem, setUpdateProductValue } from '@/redux/OrderSlice'
 import { useDeleteProduct } from '@/services/mutation'
-import { TProduct } from '@/types/types'
+import { TInvoice } from '@/types/types'
 import { Delete, Edit, PlusCircle, Trash } from 'lucide-react'
 import React from 'react'
 import { Row } from 'react-day-picker'
@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom'
 
 
 
-const ActionCell = ({row}: {row: TProduct}) => {
+const ActionCell = ({row}: {row: TInvoice}) => {
 
     const dispatch = useDispatch()  
     const location = useLocation()

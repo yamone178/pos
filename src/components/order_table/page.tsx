@@ -1,15 +1,14 @@
-import { useGetProducts } from "@/services/queries"
+import { useGetOrders } from "@/services/queries"
 import { columns } from "./columns"
 import { DataTable } from "./data-table"
-import { getProducts } from "@/services/api"
 
 
 
-export default  function ProductTable() {
+export default  function OrderTable() {
 
     
 
-    const {data, isLoading, error} = useGetProducts()
+    const {data, isLoading, error} = useGetOrders()
     if (isLoading) {
         return <div>Loading...</div>;
       }
@@ -20,7 +19,7 @@ export default  function ProductTable() {
     
 
   return (
-    <div className="container mx-auto py-5">
+    <div className="container mx-auto py-10">
       <DataTable columns={columns} data={data} />
     </div>
   )

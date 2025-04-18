@@ -1,4 +1,5 @@
 import CategoryCreate from "@/components/category-create"
+import CategoryTable from "@/components/category_table/page"
 import ProductCreate from "@/components/product-create"
 import ProductTable from "@/components/product_table/page"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -25,7 +26,16 @@ const Products = () => {
        
   </TabsContent>
   <TabsContent value="category">
-        <CategoryCreate />
+  <div className=" grid grid-cols-5 gap-8">
+        <div className=" col-span-2 border border-gray-300 p-5 mt-5 rounded-xl h-fit">
+            
+            <h2 className=" mb-4 font-semibold text-xl">Create Product</h2>
+            <CategoryCreate />
+        </div>
+        <div className=" col-span-3">
+            <CategoryTable />
+        </div>
+    </div>
   </TabsContent>
 </Tabs>
     </div>

@@ -1,5 +1,5 @@
 
-import OrderTable from '@/components/order-table'
+import OrderTable from '@/components/order_table/page'
 import React from 'react'
 
 

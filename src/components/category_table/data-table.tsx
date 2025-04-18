@@ -2,6 +2,7 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table"
 
@@ -13,12 +14,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { TProduct } from "@/types/types"
+import { TCategory } from "@/types/types"
 import { DataTablePagination } from "../data-table-pagination"
 
 interface DataTableProps<TValue> {
-  columns: ColumnDef<TProduct, TValue>[]
-  data: TProduct[]
+  columns: ColumnDef<TCategory, TValue>[]
+  data: TCategory[]
 }
 
 export function DataTable<TValue>({
@@ -29,6 +30,7 @@ export function DataTable<TValue>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel:  getPaginationRowModel()
   })
 
   return (

@@ -1,15 +1,14 @@
-import { useGetProducts } from "@/services/queries"
+import { useGetCategories} from "@/services/queries"
 import { columns } from "./columns"
 import { DataTable } from "./data-table"
-import { getProducts } from "@/services/api"
 
 
 
-export default  function ProductTable() {
+export default  function CategoryTable() {
 
     
 
-    const {data, isLoading, error} = useGetProducts()
+    const {data, isLoading, error} = useGetCategories()
     if (isLoading) {
         return <div>Loading...</div>;
       }

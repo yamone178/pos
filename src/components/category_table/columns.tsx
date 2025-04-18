@@ -1,23 +1,19 @@
 
-import { TProduct } from "@/types/types"
+import { TCategory } from "@/types/types"
 import { ColumnDef } from "@tanstack/react-table"
 import ActionCell from "./action-cell"
 
 
-export const columns: ColumnDef<TProduct>[] = [
+export const columns: ColumnDef<TCategory>[] = [
   {
-    accessorKey: "product_code",
-    header: "product Code",
+    accessorKey: "category_id",
+    header: "Category Id",
   },
   {
-    accessorKey: "product_name",
-    header: "Product Name",
+    accessorKey: "category_name",
+    header: "Category Name",
   },
-  {
-    accessorKey: "price",
-    header: "Price",
-  },
-
+ 
    
     {
         id: "action", // Use an `id` for non-accessor columns

@@ -59,7 +59,7 @@ useEffect(() => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const newProduct = {
-      id: updateValues? updateValues.category_id : uid(5),
+      id: updateValues? updateValues.id : uid(5),
       category_id: values.category_id,
       product_name: values.product_name,
       product_code: updateValues ? updateValues.product_code : generateProductCode(),
